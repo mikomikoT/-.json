@@ -1,0 +1,14 @@
+services:
+  attachment_downloader:
+    build: .
+    container_name: 'OCR'
+    image: your_image_name
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app
+      - ./data:/app/data
+      - /content/downloads:/content/downloads
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
+      - API_KEY=${API_KEY}
